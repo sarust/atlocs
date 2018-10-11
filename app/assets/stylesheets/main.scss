@@ -59,7 +59,7 @@ body {
 		padding-top: 0;
 		.navbar-wrapper {
 			.navbar {
-				@include transition(all 222ms ease);
+//				@include transition(all 222ms ease);
 			}
 		}
 		// on scroll interaction
@@ -70,11 +70,11 @@ body {
 				z-index:$zindex-navbar;
 				left:0;
 				right:0;
-				@include transition(all 222ms ease);
+//				@include transition(all 222ms ease);
 				.navbar {
 					margin-bottom: 0;
 					@extend .navbar-float !optional;
-					@include transition(all 222ms ease);
+//					@include transition(all 222ms ease);
 				}
 			}
 		}
@@ -507,7 +507,7 @@ a,
 button,
 .btn {
 	cursor: pointer;
-	@include transition(all 222ms ease);
+//	@include transition(all 222ms ease);
 }
 button, input, .form-control, a {
 	&:focus {
@@ -602,7 +602,7 @@ button, input, .form-control, a {
 	.collection-title {
 		@extend %center-all;
 		position:absolute;
-		@include transition(all 333ms ease);
+//		@include transition(all 333ms ease);
 		min-width: 70%;
 	}
 	.badge {
@@ -640,7 +640,7 @@ button, input, .form-control, a {
 		padding:2rem;
 		color:white;
 		@include transform(translateY(100%));
-		@include transition(all 333ms ease);
+//		@include transition(all 333ms ease);
 	}
 	&:hover {
 		.collection-title {
@@ -686,12 +686,12 @@ button, input, .form-control, a {
 	align-items: center;
 //	background-color: lighten($brand-primary, 10%);
 	border-radius: 24px;
-	@include transition(all 333ms ease);
+//	@include transition(all 333ms ease);
 	.footer-social-icon {
 		font-size: 24px;
 		color: white;
 		opacity: 0.75;
-		@include transition(all 333ms ease);
+//		@include transition(all 333ms ease);
 	}
 	&:hover {
 //		background-color: $brand-primary;
