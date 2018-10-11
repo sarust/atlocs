@@ -238,7 +238,7 @@
 				border-top:1px solid #eceeef;
 				ul {
 					width:100%;
-					@include flexbox($justify:space-between);
+//					@include flexbox($justify:space-between);
 					li {}
 				}
 			}
@@ -433,7 +433,7 @@
     background-color:lighten(#eceeef, 1%);
     list-style:none;
     padding:2rem;
-    @include flexbox($flow:wrap);
+//    @include flexbox($flow:wrap);
     .gallery-slot {
       width: 25%;
       padding: .9rem;
