@@ -18,7 +18,7 @@
 	.image {
 		// overflow:hidden;
 		position: relative;
-		background-color:$brand-primary;
+//		background-color:$brand-primary;
 		width:100%;
 		height:0;
 		padding-bottom: 67%;
@@ -52,7 +52,7 @@
 			padding: 0.5rem 0.75rem;
 			font-size: 1.125em;
 			z-index: 1;
-			background-color: rgba(darken($brand-primary, 15%), 0.8);
+//			background-color: rgba(darken($brand-primary, 15%), 0.8);
 			color: white;
 			font-weight: 600;
 			@include transform(translateY(-50%));
@@ -69,7 +69,7 @@
 				opacity:.5;
 			}
 			.badge-price {
-				background-color: saturate($brand-primary, 15%);
+//				background-color: saturate($brand-primary, 15%);
 				@include transform(translateY(-66%));
 			}
 		}
@@ -92,7 +92,7 @@
 	}
 	// LOCATION PREVIEW HOVER
 	&:hover {
-		background-color: rgba(lighten($brand-primary, 24%), 0.16);
+//		background-color: rgba(lighten($brand-primary, 24%), 0.16);
 	}
 }
 
@@ -314,7 +314,7 @@
 							font-family:$font-family-serif;
 							font-size:.75em;
 							display: block;
-							color:lighten($brand-primary, 33%);
+//							color:lighten($brand-primary, 33%);
 						}
 					}
 				}
@@ -343,7 +343,7 @@
 					.booking {
 						@include media("<=tablet") {
 							padding: 0 2vw;
-							border-bottom: 1px dashed lighten($brand-primary, 24%);
+//							border-bottom: 1px dashed lighten($brand-primary, 24%);
 							.btn {
 								width: auto;
 								padding: .75rem 1rem;
@@ -387,8 +387,8 @@
 						margin:-$size/2;
 						top:50%;
 						left:50%;
-						background:transparentize($brand-primary, .9);
-						border:2px solid transparentize($brand-primary, .8);
+//						background:transparentize($brand-primary, .9);
+//						border:2px solid transparentize($brand-primary, .8);
 						border-radius:100%;
 					}
 					img {
@@ -413,7 +413,7 @@
 							padding:1rem 1.5rem;
 						}
 						th {
-							background-color:transparentize($brand-primary, .93);
+//							background-color:transparentize($brand-primary, .93);
 						}
 						td {}
 					}
