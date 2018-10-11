@@ -48,7 +48,7 @@ gem 'bourbon', '4.2.7'
 gem 'uglifier', '3.0.0'
 gem 'responders', '2.2.0'
 gem 'urss', '0.3.0'
-gem 'airbrake', '5.4.1'
+#gem 'airbrake', '5.4.1'
 
 ### ADDED ###
 gem 'jbuilder', '~> 2.5'
