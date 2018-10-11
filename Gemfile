@@ -1,5 +1,8 @@
 source 'https://rubygems.org'
 
+
+gem 'pg'
+
 # Capistrano
 
 gem 'capistrano', '~> 3.7', '>= 3.7.1'
