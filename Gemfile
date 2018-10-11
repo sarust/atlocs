@@ -1,17 +1,13 @@
 source 'https://rubygems.org'
-ruby '2.2.10'
+ruby '2.2.6'
 
 gem 'rails', '4.2.6'
-#gem 'puma', '3.4.0'
-gem 'capistrano', '~> 3.7', '>= 3.7.1'
-gem 'capistrano-rails', '~> 1.2'
-gem 'capistrano-passenger', '~> 0.2.0'
-gem 'capistrano-rvm'
+gem 'passenger'
 gem 'pg', '0.18.4'
 #gem 'fog-google', '0.5.2'
 #gem 'google-api-client', '0.10.1'
 #gem 'google-cloud-storage', '0.24.0'
-#gem 'paperclip', '5.0.0'
+gem 'paperclip', '5.0.0'
 gem 'rspec-rails', '3.5.1'
 gem 'bcrypt', '3.1.11'
 gem 'aws-sdk-v1', '1.66.0'
@@ -25,6 +21,18 @@ gem 'rails_12factor', '0.0.3'
 gem 'redis', '3.3.0'
 gem 'redis-rails', '5.0.1' # Will install several other redis-* gems
 gem 'figaro', '1.1.1'
+
+gem 'capistrano', '~> 3.7', '>= 3.7.1'
+gem 'capistrano-rails', '~> 1.2'
+gem 'capistrano-passenger', '~> 0.2.0'
+
+# Add this if you're using rbenv
+# gem 'capistrano-rbenv', '~> 2.1'
+
+# Add this if you're using rvm
+gem 'capistrano-rvm'
+
+
 
 #ASSETS
 gem 'coffee-rails', '~> 4.1.0'
