@@ -249,7 +249,7 @@ h1, h2, h3, h4, h5, h6 {
 			a {
 				padding:5px;
 				.badge {
-					background-color:$brand-danger !important;
+//					background-color:$brand-danger !important;
 				}
 			}
 		}
@@ -356,7 +356,7 @@ $main-pad-size:1.5rem;
 		width:$size * .45;
 		height:$size * .45;
 		text-align:center;
-		background-color:$brand-danger;
+//		background-color:$brand-danger;
 		font-weight:600;
 	}
 	&.inline {
@@ -1024,7 +1024,7 @@ button, input, .form-control, a {
 
 form {
 	span.error, .error_notification {
-		background: lighten($brand-danger, 35%);
+//		background: lighten($brand-danger, 35%);
 		font-size: 13px;
 		color: rgba(black, 0.6);
 		padding: 0 4px;
