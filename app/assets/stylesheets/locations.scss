@@ -288,10 +288,10 @@
 					display: flex;
 					align-items: center;
 //					// @include media("<=tablet") {
-						width:100%;
-						padding:30vh 1em 1em;
-						height:auto;
-					}
+//						width:100%;
+//						padding:30vh 1em 1em;
+//						height:auto;
+//					}
 					h1 {
 						// @extend %center-vertical;
 						color:white;
@@ -301,13 +301,13 @@
 						font-weight:600;
 						margin:0;
 //						// @include media(">=tablet") {
-							top:auto;
-							font-size: 2.25rem;
-							// @include transform(translateY(0));
-						}
+//							top:auto;
+//							font-size: 2.25rem;
+//							// @include transform(translateY(0));
+//						}
 //						// @include media(">=desktop") {
-							font-size: 3rem;
-						}
+//							font-size: 3rem;
+//						}
 						small {
 							margin-top:1rem;
 							text-transform: none;
@@ -325,14 +325,14 @@
 					padding:2vw 3vw;
 					text-align: center;
 					// @include media("<=tablet") {
-						position: static;
-						width: auto;
-						flex: auto;
-						height:auto;
-					}
+//						position: static;
+//						width: auto;
+//						flex: auto;
+//						height:auto;
+//					}
 					// @include media(">=tablet") {
-						padding:1rem 2rem;
-					}
+//						padding:1rem 2rem;
+//					}
 					.price {
 						font-size:2rem;
 						font-weight:700;
@@ -342,19 +342,19 @@
 					}
 					.booking {
 						// @include media("<=tablet") {
-							padding: 0 2vw;
+//							padding: 0 2vw;
 //							border-bottom: 1px dashed lighten($brand-primary, 24%);
-							.btn {
-								width: auto;
-								padding: .75rem 1rem;
-							}
-						}
+//							.btn {
+//								width: auto;
+//								padding: .75rem 1rem;
+//							}
+//						}
 					}
 					.booking-contact {
 						margin: 1vw 0;
 						// @include media("<=tablet") {
-							margin: 2vw 0;
-						}
+//							margin: 2vw 0;
+//						}
 					}
 				}
 			}
@@ -397,9 +397,9 @@
 					}
 				}
         // @include media("<=tablet") {
-          padding: 3vw;
-          text-align: left;
-        }
+ //         padding: 3vw;
+ //         text-align: left;
+  //      }
 			}
 			.details {
 				.table {
@@ -438,14 +438,14 @@
       width: 25%;
       padding: .9rem;
       // @include media("<=tablet-max") {
-        width: 33%;
-      }
+    //    width: 33%;
+    //  }
       // @include media("<=tablet") {
-        width: 50%;
-      }
+//        width: 50%;
+//      }
       // @include media("<=600px") {
-        width: 100%;
-      }
+//        width: 100%;
+//      }
       // // @include media("<=phone-max") {
       // }
       .gallery-link {
