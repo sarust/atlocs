@@ -81,10 +81,10 @@
 			margin: 0;
 			font-size: 1.125em;
 			font-weight: 700;
-			@include trunkate(1.3em, 3);
+//			@include trunkate(1.3em, 3);
 		}
 		.desc {
-			@include trunkate(1em, 3);
+//			@include trunkate(1em, 3);
 			font-size: 1em;
 			line-height: 1.5;
 			margin: .5rem 0 0;
