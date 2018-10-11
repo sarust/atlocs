@@ -254,8 +254,8 @@
 			background:image-url('locations-placeholder.jpg') no-repeat center;
 			background-size:cover;
 //			// @include media("<=tablet") {
-				height:auto;
-			}
+//				height:auto;
+//			}
 			&:before {
 				content:"";
 				display:block;
@@ -278,10 +278,10 @@
 				align-items: stretch;
 				justify-content: space-between;
 //				// @include media("<=tablet") {
-					flex-direction: column;
-					position: relative;
-					padding: 0;
-				}
+//					flex-direction: column;
+//					position: relative;
+//					padding: 0;
+//				}
 				.location-title {
 					flex: auto;
 					margin: 1em 1.5em;
@@ -341,7 +341,7 @@
             			display: block;
 					}
 					.booking {
-						// @include media("<=tablet") {
+//						// @include media("<=tablet") {
 //							padding: 0 2vw;
 //							border-bottom: 1px dashed lighten($brand-primary, 24%);
 //							.btn {
@@ -349,7 +349,7 @@
 //								padding: .75rem 1rem;
 //							}
 //						}
-					}
+//					}
 					.booking-contact {
 						margin: 1vw 0;
 						// @include media("<=tablet") {
