@@ -1,0 +1,114 @@
+- content_for :body_class, "home special-layout"
+%section.welcome
+  .welcome-slider
+    %ul
+      %li.slide-1
+        .container
+          .row
+            .col-md-8.offset-md-2
+              .main-title.align-center.big.light
+                %h1
+                  =t('pages.home.slide1a')
+                  %small=t('pages.home.slide1b')
+      %li.slide-2
+        .container
+          .row
+            .col-md-8.offset-md-2
+              .main-title.align-center.big.light
+                %h1
+                  =t('pages.home.slide2a')
+                  %small=t('pages.home.slide2b')
+      %li.slide-3
+        .container
+          .row
+            .col-md-8.offset-md-2
+              .main-title.align-center.big.light
+                %h1
+                  =t('pages.home.slide3a')
+                  %small=t('pages.home.slide3b')
+
+  .find
+    %nav.navbar.navbar-light
+      .container.d-flex.justify-content-between
+        .col-md-8.d-flex.align-items-center
+          %span.navbar-text.mr-2=t('pages.home.navbar_tags')
+          .taglist
+            -@tags.each do |tag|
+              %button.btn.btn-primary.btn-sm{:type => "button", :onclick => "location.href = '/locations/?s=#{tag.name}';"}
+                =tag.name
+                %span.badge
+                  =tag.taggings_count
+            %button.btn.btn-secondaty.btn-sm{:type => "button"} + Tags
+
+        %form.form-inline{:role => "search", :action => '/locations/' }
+          .input-group
+            %input.form-control{:placeholder => "Buscar", :type => "text", :name=>"s"}/
+            %span.input-group-btn
+              %button.btn.btn-primary{:type => "submit"}
+                %i.mdi.mdi-magnify.mdi-lg
+%section.main-content.location-list
+  .container
+    .row
+      .col-md-8.offset-md-2
+        .main-title.align-center.big
+          %h1
+            =t('pages.home.locations1')
+            %small=t('pages.home.locations2')
+    .row
+      -@locations.each do |location|
+        =render 'locations/location', :location=>location, :description=>false
+    .row.mt-3
+      .col-md-6.offset-md-3
+        %a.btn.btn-primary.btn-lg.btn-block{:href => "/locations"}=t('actions.see_all_locations')
+%section.main-content
+  .container
+    .row
+      .col-md-8.offset-md-2
+        .main-title.align-center.big
+          %h1
+            ¿Como Funciona Atlocs?
+            %small Revisa todos los detalles en nuestro video
+    .row
+      .col-md-12
+        .videoPlayer
+          %iframe.videoPlayer__iframe{:allowfullscreen => "", :frameborder => "0", :width => "700", :height => "400", :mozallowfullscreen => "", :src => "https://player.vimeo.com/video/211832551", :webkitallowfullscreen => ""}
+
+%section.main-content
+  .container
+    .row
+      .col-md-8.offset-md-2
+        .main-title.align-center.big
+          %h1
+            =t('pages.home.collections1')
+            %small=t('pages.home.collections2')
+    .row
+      -@collections.each do |collection|
+        =render 'collections/collection', :collection=>collection
+    .row.mt-3
+      .col-md-6.offset-md-3
+        %a.btn.btn-primary.btn-lg.btn-block{:href => "/collections"}=t('actions.see_all_collections')
+
+%section.prefooter
+  .container
+    .row
+      .col-md-12
+        .main-title.align-center.big
+          %h1
+            =t('pages.home.how_it_works1')
+            %small.px-4.py-2=t('pages.home.how_it_works2')
+    .row.padding-top
+      .col-sm-6.col-md-4.text-center
+        .icon-illustration
+          =image_tag("certificate.svg")
+        %h4=t('pages.home.certificate1')
+        %p=t('pages.home.certificate2')
+      .col-sm-6.col-md-4.text-center
+        .icon-illustration
+          =image_tag("contact.svg")
+        %h4=t('pages.home.contract1')
+        %p=t('pages.home.contract2')
+      .col-sm-6.col-md-4.text-center
+        .icon-illustration
+          =image_tag("deal.svg")
+        %h4=t('pages.home.deal1')
+        %p=t('pages.home.deal2')

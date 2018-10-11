@@ -1,0 +1,36 @@
+%section.main-content
+	.container
+		.row
+			=render 'shared/adminmenu'
+			.col-md-12
+				= flash_messages
+				%ul.breadcrumb
+					%li.breadcrumb-item
+						%a{:href => "/"} Inicio
+					%li.breadcrumb-item
+						Reservas
+		=render 'calendar'
+		.table-responsive
+		- if @bookings.count>0
+			%table.table.bookings
+				%thead
+					%tr
+						-if current_user && current_user.status=="admin"
+							%th Usuario
+						%th{:style => 'width: 110px;'}=t('bookings.booking_nmbr')
+						%th{:style => 'width: 180px;'}=t('bookings.date')
+						%th=t('bookings.title')
+						%th{:style => 'width: 150px;max-width: 150px;min-width: 150px;'}
+						%th{:style => 'width: 100px;max-width: 100px;min-width: 100px;'}
+						%th{:style => 'width: 70px;max-width: 70px;min-width: 70px;'}
+						%th{:style => 'width: 70px;max-width: 70px;min-width: 70px;'}
+				=render @bookings
+		- else
+			%h2
+				No has hecho una reserva
+			%p
+				Busca en AtLocs y encuentra tu proxima locación para filmar.
+			%a.btn.btn-info{:href=>"/locations"}
+				Revisa locaciones
+
+#cancelModalHolder

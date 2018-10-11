@@ -1,0 +1,67 @@
+%section.main-content
+	.container
+		= flash_messages
+		.row.padding
+			.col-md-8
+				-if current_user && @user==current_user
+					%span Iniciaste Sesión como
+					%h3 #{@user.full_name}
+				-if current_user && current_user.status=='admin' || current_user && @user==current_user && (can? :manage, User, user_id: current_user.id)
+					%ul.user-info
+						%li
+							%i.mdi.mdi-lg.mdi-email
+							#{@user.email}
+						%li
+							%i.mdi.mdi-lg.mdi-phone
+							+56 #{@user.phone}
+					%a.btn.btn-xs.btn-info{:href => "/users/edit"}
+						%i.mdi.mdi-pencil
+						Editar perfil
+					= link_to 'Solicitar anulación de cuenta', delete_modal_path, :class=>"btn btn-outline-danger", :remote => true
+
+				%hr
+				%h2
+					-if current_user && @user==current_user
+						Mis
+					%strong Locaciones
+				.row.user-location-list
+					- locations = current_user.status == "admin" ? @user.locations : @user.locations.where(:status=>[0,2,3])
+					- locations.each do |location|
+						.col-sm-6.col-md-4
+							.thumbnail.thumbnail-reset.location-preview
+								.image
+									%span.badge.price
+										%strong CLP
+										= number_to_currency(location.totalprice, :unit => "$", :precision => 0)
+									=link_to image_tag(location.main_attachment_url(:thumb), :class=>"collection-img"), location_path(location)
+								.caption
+									%span.badge.badge-danger
+										= t("locations.status.#{location.status}")
+									%h3.title
+										= link_to location.title, location_path(location)
+									%p.desc
+										= location.description
+									%p
+										= link_to 'Editar', edit_location_path(location)
+									%p
+										- if current_user.status == "admin"
+											= link_to 'Borrar', "/locations/#{location.id}/destroy?from_user=#{@user.id}", :method => :delete
+										- else
+											= link_to 'Solicitar Eliminación', delete_location_modal_path(location), :remote => true
+			-if current_user && @user==current_user
+				.col-md-4
+					%h4 Mis Reservas
+					-if @user.bookings
+						%div.list-group
+							-@user.bookings.each do |booking|
+								%a.list-group-item{:href=>'/bookings/'+booking.code}
+									%b=booking.location.title
+									%br
+									"#{number_to_currency(booking.price, :unit => "$", :precision => 0)} x #{booking.totaldays} día(s)"
+									%span.badge
+										=booking.statusname
+							%li.list-group-item
+								=link_to "Ver mis reservas", "/bookings"
+
+#deleteModalHolder
+#locationModalHolder

@@ -1,0 +1,29 @@
+.container-fluid.py-4
+	.row.d-flex.justify-content-center
+		.col-md-6.col-sm-8
+			.card.card-outline-primary.card-session
+				.card-header.bg-primary.text-white.d-flex.align-items-center
+					%i.mdi.mdi-account-circle
+					Ingresa con tu cuenta de AtLocs
+				.card-block
+					.card-form
+						%form{:method=>"post"}
+							.form-group
+								%label{:for => "email"} Email
+								%input.form-control{:type=>"email", :name=>"email", :placeholder=>"Ingresa tu E-mail registrado"}
+							.form-group
+								%label{:for => "password"} Contraseña
+								%input.form-control{:type=>"password", :name=>"password", :placeholder=>"Ingresa tu Contraseña"}
+							.d-flex.justify-content-center.mt-4
+								%button.btn.btn-primary.btn-block{:type=>"submit"}
+									%i.mdi.mdi-arrow-right.mdi-lg.mr-2
+									Iniciar Sesión
+						%hr
+						= link_to user_facebook_omniauth_authorize_path, :class => 'btn btn-block facebook-inicio' do
+							%i.mdi.mdi-facebook-box.mdi-lg.mr-2
+							Ingresar con Facebook
+
+	.row.d-flex.justify-content-center
+		.col-md-4.text-center.p-2
+			%div.my-2=link_to "Crea una cuenta AtLocs", "/signup"
+			%div.my-2=link_to "Olvidé mi password", "/help/password"

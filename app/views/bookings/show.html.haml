@@ -1,0 +1,133 @@
+%section.main-content
+	.container.booking.booking-single
+		.row.padding-vr
+			= flash_messages
+			.col-md-8
+				.booking-status
+					.page-header
+						%h1 Historial de la Reserva
+					.comment-box#comments
+						%form.form{:action=>"javascript:submitcomment('#{(@booking.code||=@booking.generatecode)}')"}
+							.d-flex.justify-content-between.align-items-center
+								.form-group.col-md-10
+									%textarea.form-control{:name=>"body", :id=>"comment-body-input", :placeholder=>"Agrega tu comentario"}
+								.form-group.col-md-2
+									%button.btn.btn-primary.btn-lg.btn-block.pull-right{:type=>:submit}
+										%i.mdi.mdi-send
+					.booking-log.p-3#history
+						- @history.each do |event|
+							-if event["action"]=="comment"
+								.media
+									.d-flex.mr-2
+										.avatar-container
+											.user-avatar.inline{:style => "position: relative;top: -7px;left: -13px;"}
+												%i.mdi.mdi-account
+												-#= image_tag "no-avatar.png"
+
+									.media-body
+										%h5.media-heading.mt-0.mb-1
+											=event["user"]["full_name"]
+											%span.timeago
+												%i.mdi.mdi-clock
+												hace #{distance_of_time_in_words_to_now(Time.at(event["datetime"]))}
+										%p= event["text"]
+
+
+							- elsif event["action"]=="accepted"
+								.media.booking-accepted
+									.d-flex.mr-2
+										.avatar-container
+											.user-avatar.inline{:style => "position: relative;top: -7px;left: -13px;"}
+												%i.mdi.mdi-calendar-check
+									.media-body
+										%h4.media-heading.mt-0.mb-1
+											Reserva Aceptada
+											%span.timeago
+												%i.mdi.mdi-clock
+												hace #{distance_of_time_in_words_to_now(Time.at(event["datetime"]))}
+										%p=event["text"]
+							- elsif event["action"]=="cancelled"
+								.media.booking-cancelled
+									.d-flex.mr-2
+										.avatar-container
+											.user-avatar.inline{:style => "position: relative;top: -7px;left: -13px;"}
+												%i.mdi.mdi-calendar-remove
+									.media-body
+										%h4.media-heading.mt-0.mb-1
+											Reserva Cancelada
+											%span.timeago
+												%i.mdi.mdi-clock
+												hace #{distance_of_time_in_words_to_now(Time.at(event["datetime"]))}
+										%p=event["text"]
+							- elsif event["action"]=="payment"
+								.media.booking-payment-ok
+									.d-flex.mr-2
+										.avatar-container
+											.user-avatar.inline{:style => "position: relative;top: -7px;left: -13px;"}
+												%i.mdi.mdi-cash
+									.media-body
+										%h4.media-heading.mt-0.mb-1
+											Pago Realizado
+											%span.timeago
+												%i.mdi.mdi-clock
+												hace #{distance_of_time_in_words_to_now(Time.at(event["datetime"]))}
+										%p=event["text"]
+						.media
+							.d-flex.mr-2
+								.avatar-container
+									.user-avatar.inline{:style => "position: relative;top: -7px;left: -13px;"}
+										%i.mdi.mdi-calendar
+							.media-body
+								%h4.media-heading.mt-0.mb-1
+									Solicitud de reserva creada
+								%p
+									%a{:href => "#"}
+										#{@booking.user.try(:full_name)}
+										- if @booking.created_at
+											%span.timeago
+												%i.mdi.mdi-clock
+												hace #{distance_of_time_in_words_to_now(@booking.created_at)}
+			.col-md-4
+				- if @booking.status!="archived"
+					.booking-actions{:style => "margin-top: 20px;margin-bottom:20px;"}
+						/ Split button
+						.btn-group{:style => "width: 100%;"}
+							- if @booking.status=="accepted" && current_user.id==@booking.user.id
+								%a.btn.btn-lg.btn-primary.btn-block{:type => "button", :href=>"javascript:alert('¡Revisa tu Correo! Hemos enviado un E-mail con la información de pago de la Reserva')"}
+									%i.mdi.mdi-check
+									Pagar Reserva
+							- elsif @booking.status=="waiting" && current_user.id==@booking.location.user.id
+								%a.btn.btn-lg.btn-success.btn-block{:type => "button", :href=>"/bookings/#{@booking.code}/accept"}
+									%i.mdi.mdi-check
+									Aceptar Reserva
+							- elsif @booking.status=="waiting"||@booking.status=="accepted"
+								%a.btn.btn-lg.btn-primary.btn-block{:type => "button", :href=>"/bookings/#{@booking.code}/cancel", :style => "-webkit-appearance: none;"}
+									%i.mdi.mdi-block-helper
+									Cancelar Reserva
+
+
+				.location-info.well
+					%h2.location-title #{@booking.location.title}
+					.location-img
+						= image_tag @booking.location.thumbnail(500,230)
+					%ul.booking-details
+						%li
+							%i.mdi.mdi-lg.mdi-calendar-today
+							Desde el:
+							%b=@booking.start_time.strftime("%d/%m/%Y")
+
+						%li
+							%i.mdi.mdi-lg.mdi-calendar
+							Hasta el:
+							%b=@booking.end_time.strftime("%d/%m/%Y")
+
+						%li
+							%i.mdi.mdi-lg.mdi-cash
+							Precio locación:
+							%b=number_to_currency(@booking.price, :unit => "$", :precision => 0)
+							x #{@booking.totaldays} día(s)
+						%li
+							%i.mdi.mdi-lg.mdi-clock
+							Precio de reserva:
+							%b=number_to_currency(@booking.price_by_days, :unit => "$", :precision => 0)
+							x #{@booking.totaldays} día(s)

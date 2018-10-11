@@ -1,0 +1,15 @@
+.container
+	.col-md-8.offset-md-2
+		.booking-request-form.pt-4
+			%h2.my-4
+				=t('bookings.new')
+				%strong= @location.title
+			%p=t('bookings.date_select')
+			= render 'form'
+		- if flash[:notice]
+			#success-msg.alert.alert-success
+				=t('bookings.success')
+				%a{:href => "/bookings"}=t('bookings.my_bookings')
+		- if flash[:error]
+			#error-msg.alert.alert-warning
+				= flash[:error]

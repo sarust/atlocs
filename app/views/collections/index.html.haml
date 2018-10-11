@@ -1,0 +1,12 @@
+- content_for :body_class, "collections"
+%section.main-content
+  .container
+    .row
+      .col-md-8.offset-md-2
+        .page-header.main-title.align-center.big
+          %h1
+            =t('actions.explore')
+            %small=t('general.collections_and')
+    .row
+      -@collections.each do |collection|
+        =render 'collection', :collection=>collection

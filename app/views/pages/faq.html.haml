@@ -1,0 +1,176 @@
+%section.main-content
+	.container
+		.col-md-10.offset-md-1
+			.page-header
+				%h1 
+					=t('faq.title')
+					%br/
+					%small=t('faq.general')
+			%ul#accordion.accordion-faq
+				%li.item
+					%h4.question
+						%a{"data-parent" => "#accordion", "data-toggle" => "collapse", :href => "#collapseOne"}
+							=t('faq.question1a')
+					#collapseOne.panel-collapse.collapse.in
+						.answer.padding
+							%p=t('faq.question1b')
+				%li.item
+					%h4.question
+						%a{"data-parent" => "#accordion", "data-toggle" => "collapse", :href => "#collapseTwo"}
+							=t('faq.question2a')
+					#collapseTwo.panel-collapse.collapse
+						.answer.padding
+							%p
+								%strong=t('faq.question2b')
+							%p=t('faq.question2c')
+							%p
+								%strong=t('faq.question2d')
+							%p=t('faq.question2e')
+				
+				%li.item
+					%h4.question
+						%a{"data-parent" => "#accordion", "data-toggle" => "collapse", :href => "#collapseFifteen"}
+							=t('faq.question3a')
+					#collapseFifteen.panel-collapse.collapse
+						.answer.padding
+							%p=t('faq.question3b')
+				%li.item
+					%h4.question
+						%a{"data-parent" => "#accordion", "data-toggle" => "collapse", :href => "#collapseSixteen"}
+							=t('faq.question4a')
+					#collapseSixteen.panel-collapse.collapse
+						.answer.padding
+							%p=t('faq.question4b')
+				%li.item
+					%h4.question
+						%a{"data-parent" => "#accordion", "data-toggle" => "collapse", :href => "#collapseSeventeen"}
+							=t('faq.question5a')
+					#collapseSeventeen.panel-collapse.collapse
+						.answer.padding
+							%p=t('faq.question5b')
+				%li.item
+					%h4.question
+						%a{"data-parent" => "#accordion", "data-toggle" => "collapse", :href => "#collapseEighteen"}
+							=t('faq.question6a')
+					#collapseEighteen.panel-collapse.collapse
+						.answer.padding
+							%p=t('faq.question6b')
+				%li.item
+					%h4.question
+						%a{"data-parent" => "#accordion", "data-toggle" => "collapse", :href => "#collapseNineteen"}
+							=t('faq.question7a')
+					#collapseNineteen.panel-collapse.collapse
+						.answer.padding
+							%p
+								=t('faq.question7b')
+
+				%li.item
+					%h4.question
+						%a{"data-parent" => "#accordion", "data-toggle" => "collapse", :href => "#collapseThree"}
+							=t('faq.question8a')
+					#collapseThree.panel-collapse.collapse
+						.answer.padding
+							%p=t('faq.question8b')
+							%p=t('faq.question8c')
+							%p=t('faq.question8d')
+
+				%li.item
+					%h4.question
+						%a{"data-parent" => "#accordion", "data-toggle" => "collapse", :href => "#collapseFour"}
+							=t('faq.question9a')
+					#collapseFour.panel-collapse.collapse
+						.answer.padding
+							%p=t('faq.question9b')
+				%li.item
+					%h4.question
+						%a{"data-parent" => "#accordion", "data-toggle" => "collapse", :href => "#collapseFive"}
+							=t('faq.question10a')
+					#collapseFive.panel-collapse.collapse
+						.answer.padding
+							%p=t('faq.question10b')
+				%li.item
+					%h4.question
+						%a{"data-parent" => "#accordion", "data-toggle" => "collapse", :href => "#collapseSix"}
+							=t('faq.question11a')
+					#collapseSix.panel-collapse.collapse
+						.answer.padding
+							%p=t('faq.question11b')
+				%li.item
+					%h4.question
+						%a{"data-parent" => "#accordion", "data-toggle" => "collapse", :href => "#collapseSeven"}
+							=t('faq.question12a')
+					#collapseSeven.panel-collapse.collapse
+						.answer.padding
+							%p=t('faq.question12b')
+				%li.item
+					%h4.question
+						%a{"data-parent" => "#accordion", "data-toggle" => "collapse", :href => "#collapseEight"}
+							=t('faq.question13a')
+					#collapseEight.panel-collapse.collapse
+						.answer.padding
+							%p=t('faq.question13b')
+							%p=t('faq.question13c')
+							%p=t('faq.question13d')
+							%p=t('faq.question13e')
+
+				%li.item
+					%h4.question
+						%a{"data-parent" => "#accordion", "data-toggle" => "collapse", :href => "#collapseNine"}
+							=t('faq.question14a')
+					#collapseNine.panel-collapse.collapse
+						.answer.padding
+							%p=t('faq.question14b')
+				%li.item
+					%h4.question
+						%a{"data-parent" => "#accordion", "data-toggle" => "collapse", :href => "#collapseTen"}
+							=t('faq.question15a')
+					#collapseTen.panel-collapse.collapse
+						.answer.padding
+							%p=t('faq.question15b')
+				%li.item
+					%h4.question
+						%a{"data-parent" => "#accordion", "data-toggle" => "collapse", :href => "#collapseEleven"}
+							=t('faq.question16a')
+					#collapseEleven.panel-collapse.collapse
+						.answer.padding
+							%p=t('faq.question16b')
+							%p=t('faq.question16c')
+				%li.item
+					%h4.question
+						%a{"data-parent" => "#accordion", "data-toggle" => "collapse", :href => "#collapseTwelve"}
+							=t('faq.question17a')
+					#collapseTwelve.panel-collapse.collapse
+						.answer.padding
+							%p=t('faq.question17b')
+							%p=t('faq.question17c')
+				
+
+		.col-md-10.offset-md-1
+			.page-header
+				%h1 
+					=t('faq.title')
+					%br/
+					%small=t('faq.bookings')
+			%ul#accordion.accordion-clear
+				%li.item
+					%h4.question
+						%a{"data-parent" => "#accordion", "data-toggle" => "collapse", :href => "#collapseThirteen"}
+							=t('faq.question18a')
+					#collapseThirteen.panel-collapse.collapse.in
+						.answer.padding
+							%p=t('faq.question18a')
+							%p=t('faq.question18b')
+				%li.item
+					%h4.question
+						%a{"data-parent" => "#accordion", "data-toggle" => "collapse", :href => "#collapseFourteen"}
+							=t('faq.question19a')
+					#collapseFourteen.panel-collapse.collapse
+						.answer.padding
+							%p=t('faq.question19b')
+		
+
+
+				
+
+
+								

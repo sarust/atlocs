@@ -1,0 +1,39 @@
+- content_for :body_class, "locations"
+
+%section.main-content.location-list
+	.container
+		.row
+			-if params[:s]
+				%ol.breadcrumb.searchform
+					%li
+						%a{:href => "/"} Home
+					%li
+						=t('extras.search_results')
+						%strong "#{params[:s]}"
+					.pull-right
+						%form.form-inline{:role => "search", :action => '/locations/' }
+							.input-group
+								%input.form-control{:placeholder => "Buscar", :type => "text", :name=>"s"}/
+								%span.input-group-btn
+									%button.btn.btn-primary{:type => "submit"}
+										%i.mdi.mdi-magnify.mdi-lg
+			.col-md-8.offset-md-2
+				.page-header.main-title.align-center.big
+					%h1
+						-if params[:s]
+							=t('extras.searching')
+							%small "#{params[:s]}"
+						-elsif params[:collection]
+							=t('extras.exploring')
+							%small "#{Collection.find(params[:collection]).name}"
+							-#.info
+								.bagde
+									= Location.where(:collection_id => params[:collection]).count locaciones en colección
+						-else params[:collection]
+							=t('actions.explore')
+							%small=t('general.locations')
+
+	.container
+		.row
+			-@locations.each do |location|
+				= render 'location', :location=>location, :description=>true

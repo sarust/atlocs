@@ -1,0 +1,74 @@
+%tr
+	-if current_user && current_user.status=="admin"
+		/ User name
+		%td
+			= link_to booking.location.user.full_name, '/users/'+booking.location.user.id.to_s
+	/ Location code
+	%td.text-center
+		.bb
+			%b{:style => 'font-size:12px;'}
+				= t('bookings.booking_nmbr')
+				%span{:style => 'display:block; font-size:15px;'}
+					= "#{booking.code}"
+	/ Location dates
+	%td
+		.bb{:style => 'padding-right: 15px;'}
+			.start-date.bbb{:style => 'font-size:16px;font-weight:600;'}
+				%span{:style => 'font-size:12px;font-weight:300;'}
+					= t('bookings.from')
+				= l(booking.start_time, format: '%d /%m /%Y')
+			.start-date{:style => 'font-size:16px;font-weight:600;'}
+				%span{:style => 'font-size:12px;font-weight:300;'}
+					= t('bookings.until')
+				= l(booking.end_time, format: '%d /%m /%Y')
+
+	/ Location Title
+	%td
+		= booking.code
+		%small.help-block
+	/ Location dates
+	%td
+		.start-date
+		= l(booking.start_time, format: '%d /%m /%Y')
+		.start-date
+		= l(booking.end_time, format: '%d /%m /%Y')
+
+	/ Location Title
+	%td
+		= link_to booking.location.title, location_path(booking.location)
+		%small.help-block
+	/ Actions
+	- if current_user.status=="admin" && (booking.status=="paid" or booking.status=="accepted")
+		%td{:style => 'vertical-align:middle;'}
+			- if booking.status=="accepted"
+				= link_to "/bookings/#{booking.code}/payment/confirm", class: "table-pay" do
+					= t('bookings.confirm')
+			- else
+				.table-pay
+					= t('bookings.paid')
+	- else
+		%td
+	%td
+		.btn-group
+			= link_to "/bookings/"+(booking.code||=booking.generatecode), :class=> "table-btn" do
+				=image_tag "#{asset_path('view.svg')}", :style => "width: 60px;"
+				-# %i.mdi.mdi-eye
+				%p= t('bookings.go_to')
+	%td
+		- if booking.status=="waiting" && (can? :accept, booking)
+			= link_to "/bookings/#{booking.code}/accept", :class=> "table-btn" do
+				%i.mdi.mdi-check
+				%p= t('bookings.approve')
+		- else
+			- unless current_user == booking.location.user
+				= link_to edit_booking_path(booking), :class=> "table-btn" do
+					=image_tag "#{asset_path('edit.svg')}", :style => "width: 60px;"
+					-# %i.mdi.mdi-pencil
+					%p= t('bookings.edit')
+		- unless booking.status == 'paid'
+			%td
+				= link_to cancel_booking_path(booking), remote: true, :class=> "table-btn" do
+					=image_tag "#{asset_path('delete.svg')}", :style => "width: 60px;"
+					-# %i.mdi.mdi-delete
+					%p= t('bookings.cancel')
+		%td
