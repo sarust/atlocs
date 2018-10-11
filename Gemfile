@@ -1,61 +1,73 @@
 source 'https://rubygems.org'
+ruby '2.2.10'
 
-
-gem 'pg'
-
-# Capistrano
-
+gem 'rails', '4.2.6'
+#gem 'puma', '3.4.0'
 gem 'capistrano', '~> 3.7', '>= 3.7.1'
 gem 'capistrano-rails', '~> 1.2'
 gem 'capistrano-passenger', '~> 0.2.0'
-
-# Add this if you're using rbenv
-# gem 'capistrano-rbenv', '~> 2.1'
-
-# Add this if you're using rvm
- gem 'capistrano-rvm'
-
-# Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '4.2.6'
-# Use sqlite3 as the database for Active Record
-gem 'sqlite3'
-# Use SCSS for stylesheets
-gem 'sass-rails', '~> 5.0'
-# Use Uglifier as compressor for JavaScript assets
-gem 'uglifier', '>= 1.3.0'
-# Use CoffeeScript for .coffee assets and views
-gem 'coffee-rails', '~> 4.1.0'
-# See https://github.com/rails/execjs#readme for more supported runtimes
-# gem 'therubyracer', platforms: :ruby
-
-# Use jquery as the JavaScript library
-gem 'jquery-rails'
-# Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
-gem 'turbolinks'
-# Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
-gem 'jbuilder', '~> 2.0'
-# bundle exec rake doc:rails generates the API under doc/api.
-gem 'sdoc', '~> 0.4.0', group: :doc
-
-# Use ActiveModel has_secure_password
-# gem 'bcrypt', '~> 3.1.7'
-
-# Use Unicorn as the app server
-# gem 'unicorn'
-
-# Use Capistrano for deployment
-# gem 'capistrano-rails', group: :development
-
-group :development, :test do
-  # Call 'byebug' anywhere in the code to stop execution and get a debugger console
-  gem 'byebug'
+gem 'capistrano-rvm'
+gem 'pg', '0.18.4'
+gem 'fog-google', '0.5.2'
+gem 'google-api-client', '0.10.1'
+gem 'google-cloud-storage', '0.24.0'
+gem 'paperclip', '5.0.0'
+gem 'rspec-rails', '3.5.1'
+gem 'bcrypt', '3.1.11'
+gem 'aws-sdk-v1', '1.66.0'
+gem 'aws-sdk', '2.3.21'
+gem 'pg_search', '1.0.6'
+gem 'cancancan', '1.15.0'
+group :production do
+	gem 'newrelic_rpm'
 end
+gem 'rails_12factor', '0.0.3'
+gem 'redis', '3.3.0'
+gem 'redis-rails', '5.0.1' # Will install several other redis-* gems
+gem 'figaro', '1.1.1'
+
+#ASSETS
+gem 'coffee-rails', '~> 4.1.0'
+gem 'jquery-rails', '4.1.1'
+gem 'jquery-ui-rails', '5.0.5'
+gem 'sass-rails', '~> 5.0'
+gem 'haml', '4.0.7'
+# gem 'bootstrap-sass', '~> 3.3.5'
+gem 'bootstrap', '~> 4.0.0.alpha6'
+gem 'tether-rails', '1.4.0'
+# gem 'twbs_sass_rails'
+gem 'bourbon', '4.2.7'
+gem 'uglifier', '3.0.0'
+gem 'responders', '2.2.0'
+gem 'urss', '0.3.0'
+gem 'airbrake', '5.4.1'
+
+### ADDED ###
+gem 'jbuilder', '~> 2.5'
+gem 'fullcalendar-rails'
+gem 'momentjs-rails'
+gem 'devise'
+gem 'simple_form'
+gem 'omniauth-facebook'
+gem 'dotenv-rails'
 
 group :development do
-  # Access an IRB console on exception pages or by using <%= console %> in views
-  gem 'web-console', '~> 2.0'
-
-  # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
-  gem 'spring'
+	gem 'sqlite3'
+	gem 'letter_opener'
 end
+#LOCATION META
+gem 'geocomplete_rails', '1.7.0'
+gem 'faker', '1.6.5'
+gem 'bootstrap-datepicker-rails', '1.6.1.1'
+gem 'ruby-thumbor', '2.0.1'
+gem 'papercrop', '0.3.0'
+gem 'image_suckr', '0.2.0'
+gem 'rails-jquery-autocomplete', '1.0.3'
+gem "bootstrap_flash_messages", "~> 1.0.2"
+gem "pry", '0.10.4'
+gem 'acts_as_paranoid', '~> 0.5.0'
+gem 'awesome_print', '1.7.0'
 
+gem 'money'
+gem 'google_currency'
+gem 'monetize'
