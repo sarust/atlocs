@@ -14,7 +14,7 @@
 
 .location-preview {
 	//min-height:230px;
-//	@include transition(all 300ms ease);
+//	// @include transition(all 300ms ease);
 	.image {
 		// overflow:hidden;
 		position: relative;
@@ -39,7 +39,7 @@
 		  	height: 100%;
 			object-fit: cover;
 			z-index:0;
-//			@include transition(all 333ms ease);
+//			// @include transition(all 333ms ease);
 		}
 		.badge-price {
 			display: flex;
@@ -55,8 +55,8 @@
 //			background-color: rgba(darken($brand-primary, 15%), 0.8);
 			color: white;
 			font-weight: 600;
-//			@include transform(translateY(-50%));
-//			@include transition(all 300ms ease);
+//			// @include transform(translateY(-50%));
+//			// @include transition(all 300ms ease);
 			.currency {
 				font-size: .625em;
 				line-height: 1;
@@ -70,7 +70,7 @@
 			}
 			.badge-price {
 //				background-color: saturate($brand-primary, 15%);
-//				@include transform(translateY(-66%));
+//				// @include transform(translateY(-66%));
 			}
 		}
 	}
@@ -81,10 +81,10 @@
 			margin: 0;
 			font-size: 1.125em;
 			font-weight: 700;
-//			@include trunkate(1.3em, 3);
+//			// @include trunkate(1.3em, 3);
 		}
 		.desc {
-//			@include trunkate(1em, 3);
+//			// @include trunkate(1em, 3);
 			font-size: 1em;
 			line-height: 1.5;
 			margin: .5rem 0 0;
@@ -102,7 +102,7 @@
 		width:$scrollspy-w;
 		.nav {
 			width:$scrollspy-w;
-//			@include transition(all 222ms ease);
+//			// @include transition(all 222ms ease);
 			&.affix {
 				top:70px;
 			}
@@ -238,7 +238,7 @@
 				border-top:1px solid #eceeef;
 				ul {
 					width:100%;
-//					@include flexbox($justify:space-between);
+//					// @include flexbox($justify:space-between);
 					li {}
 				}
 			}
@@ -253,7 +253,7 @@
 			height:520px;
 			background:image-url('locations-placeholder.jpg') no-repeat center;
 			background-size:cover;
-			@include media("<=tablet") {
+//			// @include media("<=tablet") {
 				height:auto;
 			}
 			&:before {
@@ -264,7 +264,7 @@
 				top:0;
 				width:100%;
 				height:100%;
-				@include background-image(linear-gradient(rgba(0,0,0,0.05) 33%, rgba(0,0,0,0.5) 90%));
+//				// @include background-image(linear-gradient(rgba(0,0,0,0.05) 33%, rgba(0,0,0,0.5) 90%));
 			}
 			[class*="container"] {
 				position: absolute;
@@ -277,7 +277,7 @@
 				display: flex;
 				align-items: stretch;
 				justify-content: space-between;
-				@include media("<=tablet") {
+//				// @include media("<=tablet") {
 					flex-direction: column;
 					position: relative;
 					padding: 0;
@@ -287,7 +287,7 @@
 					margin: 1em 1.5em;
 					display: flex;
 					align-items: center;
-					@include media("<=tablet") {
+//					// @include media("<=tablet") {
 						width:100%;
 						padding:30vh 1em 1em;
 						height:auto;
@@ -300,12 +300,12 @@
 						text-transform:uppercase;
 						font-weight:600;
 						margin:0;
-						@include media(">=tablet") {
+//						// @include media(">=tablet") {
 							top:auto;
 							font-size: 2.25rem;
-							@include transform(translateY(0));
+							// @include transform(translateY(0));
 						}
-						@include media(">=desktop") {
+//						// @include media(">=desktop") {
 							font-size: 3rem;
 						}
 						small {
@@ -324,13 +324,13 @@
 					background-color:white;
 					padding:2vw 3vw;
 					text-align: center;
-					@include media("<=tablet") {
+					// @include media("<=tablet") {
 						position: static;
 						width: auto;
 						flex: auto;
 						height:auto;
 					}
-					@include media(">=tablet") {
+					// @include media(">=tablet") {
 						padding:1rem 2rem;
 					}
 					.price {
@@ -341,7 +341,7 @@
             			display: block;
 					}
 					.booking {
-						@include media("<=tablet") {
+						// @include media("<=tablet") {
 							padding: 0 2vw;
 //							border-bottom: 1px dashed lighten($brand-primary, 24%);
 							.btn {
@@ -352,7 +352,7 @@
 					}
 					.booking-contact {
 						margin: 1vw 0;
-						@include media("<=tablet") {
+						// @include media("<=tablet") {
 							margin: 2vw 0;
 						}
 					}
@@ -396,7 +396,7 @@
 						height:auto;
 					}
 				}
-        @include media("<=tablet") {
+        // @include media("<=tablet") {
           padding: 3vw;
           text-align: left;
         }
@@ -433,20 +433,20 @@
     background-color:lighten(#eceeef, 1%);
     list-style:none;
     padding:2rem;
-//    @include flexbox($flow:wrap);
+//    // @include flexbox($flow:wrap);
     .gallery-slot {
       width: 25%;
       padding: .9rem;
-      @include media("<=tablet-max") {
+      // @include media("<=tablet-max") {
         width: 33%;
       }
-      @include media("<=tablet") {
+      // @include media("<=tablet") {
         width: 50%;
       }
-      @include media("<=600px") {
+      // @include media("<=600px") {
         width: 100%;
       }
-      // @include media("<=phone-max") {
+      // // @include media("<=phone-max") {
       // }
       .gallery-link {
 		  display: block;
@@ -466,8 +466,8 @@
 			width: 100%;
 			height: 100%;
 			object-fit: cover;
-//			@include transform(translate(-50%, -50%));
-//			@include transition(all 300ms ease);
+//			// @include transform(translate(-50%, -50%));
+//			// @include transition(all 300ms ease);
 			&:hover {
 				width: 125%;
 				height: 125%;
