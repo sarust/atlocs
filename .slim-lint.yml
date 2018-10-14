@@ -1,6 +1,0 @@
-exclude:
-  - 'vendor/bundle/**/*.slim'
-
-linters:
-  LineLength:
-    enabled: false

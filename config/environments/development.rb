@@ -1,6 +1,6 @@
-# frozen_string_literal: true
-
 Rails.application.configure do
+
+  config.action_mailer.default_url_options = { host: 'localhost:3000' }
   # Settings specified here will take precedence over those in config/application.rb.
 
   # In the development environment your application's code is reloaded on
@@ -11,12 +11,20 @@ Rails.application.configure do
   # Do not eager load code on boot.
   config.eager_load = false
 
+
+
   # Show full error reports and disable caching.
   config.consider_all_requests_local       = true
   config.action_controller.perform_caching = false
 
   # Don't care if the mailer can't send.
-  config.action_mailer.raise_delivery_errors = false
+  config.action_mailer.raise_delivery_errors = true
+  #config.action_mailer.perform_deliveries = false
+  config.action_mailer.perform_deliveries = true
+  config.action_mailer.delivery_method = :letter_opener
+  config.action_mailer.default_url_options = { :host => 'http://localhost:3000' }
+  config.action_mailer.asset_host = 'http://localhost:3000'
+
 
   # Print deprecation notices to the Rails logger.
   config.active_support.deprecation = :log
@@ -28,6 +36,8 @@ Rails.application.configure do
   # This option may cause significant delays in view rendering with a large
   # number of complex assets.
   config.assets.debug = true
+    config.log_level = :debug
+
 
   # Asset digests allow you to set far-future HTTP expiration dates on all assets,
   # yet still be able to expire them through the digest params.
@@ -37,9 +47,6 @@ Rails.application.configure do
   # Checks for improperly declared sprockets dependencies.
   # Raises helpful error messages.
   config.assets.raise_runtime_errors = true
-
-  # Do not log asset requests
-  config.assets.quiet = true
 
   # Raises error for missing translations
   # config.action_view.raise_on_missing_translations = true

@@ -1,10 +1,19 @@
-# frozen_string_literal: true
-
 Rails.application.configure do
-  # Settings specified here will take precedence over those in config/application.rb.
+  ActionMailer::Base.smtp_settings = {
+    :address        => 'smtp.mailgun.org',
+    :port           => '2525',
+    :authentication => :plain,
+    :user_name      => 'postmaster@atlocs.com',
+    :password       => 'd0c9b7e7582bfa223ad3870847273c7b',
+    :domain         => 'atlocs.com',
+    :enable_starttls_auto => true
+  }
 
-  # Compress HTML, JSON and other Rails-generated responses.
-  config.middleware.use Rack::Deflater
+
+  config.action_mailer.default_url_options = { :host => 'http://192.168.1.3' }
+  config.action_mailer.asset_host = 'http://192.168.1.3'
+
+  # Settings specified here will take precedence over those in config/application.rb.
 
   # Code is not reloaded between requests.
   config.cache_classes = true
@@ -47,11 +56,11 @@ Rails.application.configure do
   # config.action_dispatch.x_sendfile_header = 'X-Accel-Redirect' # for NGINX
 
   # Force all access to the app over SSL, use Strict-Transport-Security, and use secure cookies.
-  config.force_ssl = true
+  # config.force_ssl = true
 
   # Use the lowest log level to ensure availability of diagnostic information
   # when problems arise.
-  config.log_level = :debug
+  config.log_level = :warn
 
   # Prepend all log lines with the following tags.
   # config.log_tags = [ :subdomain, :uuid ]
