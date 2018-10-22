@@ -1,17 +1,17 @@
 Rails.application.configure do
   ActionMailer::Base.smtp_settings = {
-    :address        => 'smtp.mailgun.org',
-    :port           => '2525',
+    :address        => 'localhost',
+    :port           => '25',
     :authentication => :plain,
-    :user_name      => 'postmaster@atlocs.com',
-    :password       => 'd0c9b7e7582bfa223ad3870847273c7b',
+    :user_name      => 'contact@atlocs.com',
+    :password       => 'alefdata*123',
     :domain         => 'atlocs.com',
     :enable_starttls_auto => true
   }
 
 
-  config.action_mailer.default_url_options = { :host => 'http://192.168.1.3' }
-  config.action_mailer.asset_host = 'http://192.168.1.3'
+  config.action_mailer.default_url_options = { :host => 'localhost' }
+  config.action_mailer.asset_host = 'localhost'
 
   # Settings specified here will take precedence over those in config/application.rb.
 
