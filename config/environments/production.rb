@@ -7,7 +7,7 @@ Rails.application.configure do
     :password       => 'alefdata*123',
     :domain         => 'atlocs.com',
     :enable_starttls_auto => true,
-    :openssl_verify_mode => OpenSSL::SSL::VERIFY_NONE
+    :openssl_verify_mode => 'none'
   }
 
   config.action_mailer.delivery_method = :sendmail
