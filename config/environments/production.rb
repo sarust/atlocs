@@ -2,15 +2,16 @@ Rails.application.configure do
   ActionMailer::Base.smtp_settings = {
     :address        => 'localhost',
     :port           => '25',
-    :authentication => :plain,
-    :user_name      => 'contact@atlocs.com',
+    :authentication => :login,
+    :user_name      => 'contact',
     :password       => 'alefdata*123',
     :domain         => 'atlocs.com',
     :enable_starttls_auto => true
+    :openssl_verify_mode => OpenSSL::SSL::VERIFY_NONE
   }
 
-
-  config.action_mailer.default_url_options = { :host => 'localhost' }
+  config.action_mailer.delivery_method = :sendmail
+  #config.action_mailer.default_url_options = { :host => 'localhost' }
   config.action_mailer.asset_host = 'localhost'
 
   # Settings specified here will take precedence over those in config/application.rb.
@@ -25,7 +26,8 @@ Rails.application.configure do
   config.eager_load = true
 
   # Full error reports are disabled and caching is turned on.
-  config.consider_all_requests_local       = false
+  # Modificado srus request_local false to true
+  config.consider_all_requests_local       = true
   config.action_controller.perform_caching = true
 
   # Enable Rack::Cache to put a simple HTTP cache in front of your application

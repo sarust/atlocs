@@ -12,7 +12,7 @@ Devise.setup do |config|
   # Configure the e-mail address which will be shown in Devise::Mailer,
   # note that it will be overwritten if you use your own mailer class
   # with default "from" parameter.
-  config.mailer_sender = "AtLocs <contacto@atlocs.com>"
+  config.mailer_sender = "AtLocs <contact@atlocs.com>"
 
   # Configure the class responsible to send e-mails.
   config.mailer = 'SessionMailer'
@@ -253,7 +253,7 @@ Devise.setup do |config|
   config.omniauth :facebook, "1366176806802114", "a6eb98fc2c680677b3bbfa7a8f79924e",
                 #callback_url: 'http://localhost:3000/users/auth/facebook/callback',
                 #callback_url: "http://atlocs.nnodes.com/users/auth/facebook/callback",
-                callback_url: "http://192.168.1.3/users/auth/facebook/callback",
+                callback_url: "http://atlocs.com/users/auth/facebook/callback",
                 scope: 'email,public_profile',
                 info_fields: 'email,first_name,last_name'
   # config.omniauth :github, 'APP_ID', 'APP_SECRET', scope: 'user,public_repo'
