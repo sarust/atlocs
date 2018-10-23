@@ -6,7 +6,7 @@ Rails.application.configure do
     :user_name      => 'contact',
     :password       => 'alefdata*123',
     :domain         => 'atlocs.com',
-    :enable_starttls_auto => true
+    :enable_starttls_auto => true,
     :openssl_verify_mode => OpenSSL::SSL::VERIFY_NONE
   }
 
