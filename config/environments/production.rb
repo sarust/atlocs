@@ -1,18 +1,28 @@
 Rails.application.configure do
-  ActionMailer::Base.smtp_settings = {
-    :address        => 'localhost',
-    :port           => '25',
-    :authentication => :login,
-    :user_name      => 'contact',
-    :password       => 'alefdata*123',
-    :domain         => 'atlocs.com',
-    :enable_starttls_auto => true,
-    :openssl_verify_mode => 'none'
-  }
+#  ActionMailer::Base.smtp_settings = {
+#    :address        => 'localhost',
+#    :port           => '25',
+#    :authentication => :login,
+#    :user_name      => 'contact',
+#    :password       => 'alefdata*123',
+#    :domain         => 'atlocs.com',
+#    :enable_starttls_auto => true,
+#    :openssl_verify_mode => 'none'
+#  }
 
   config.action_mailer.delivery_method = :sendmail
+# Defaults to:
+config.action_mailer.sendmail_settings = {
+   location: '/usr/sbin/sendmail',
+   arguments: '-i'
+ }
+config.action_mailer.perform_deliveries = true
+config.action_mailer.raise_delivery_errors = true
+config.action_mailer.default_options = {from: 'contacto@atlocs.com'}
+
+#  config.action_mailer.delivery_method = :sendmail
   #config.action_mailer.default_url_options = { :host => 'localhost' }
-  config.action_mailer.asset_host = 'localhost'
+#  config.action_mailer.asset_host = 'localhost'
 
   # Settings specified here will take precedence over those in config/application.rb.
 
